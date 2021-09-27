@@ -1,0 +1,11 @@
+<section>
+  <form (ngSubmit)="post()">
+    <h2>Novo Post</h2>
+    <label for="postTitle">Título do Post</label>
+    <input type="text" [(ngModel)]="postTitle" name="postTitle"/>
+
+    <label for="description">Descrição do post:</label>
+    <textarea id="description" name="description" rows="5" cols="33" [(ngModel)]="postDescription" name="postDescription" ></textarea>
+    <button class="submit-button" type="submit">Postar</button>
+  </form>
+</section>

@@ -1,0 +1,17 @@
+<section *ngIf="posts?.length > 0; else noPosts">
+  <h1 style="text-align: center; margin-top: 20px;">Timeline</h1>
+  <div *ngFor="let post of posts" class="post-content">
+    <h3>@user_{{post.id}}</h3>
+    <h1>{{post.title}}</h1>
+    <p class="post-description">{{post.description}}</p>
+    <div class="datePost">
+      <span>{{post.date | date: 'short'}}</span>
+    </div>
+  </div>
+</section>
+<ng-template #noPosts>
+  <p class="noPostsP">Nenhum post encontrado</p>
+</ng-template>
+
+
+

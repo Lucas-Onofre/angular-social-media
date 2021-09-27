@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+  --black-color: #191919;
+  --yellow-color: #F5D95A;
+  --yellow-dark-color: #ffd000;
+  --gray-color: #DCDCDC;
+  --white: #FFFFFF;
+}
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
