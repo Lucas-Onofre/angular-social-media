@@ -22,7 +22,7 @@ export class NewPostComponent implements OnInit {
     const paragraphErrorMessage = document.querySelector('#tryAgain');
     if(this.postTitle?.length > 0 && this.postDescription?.length > 0){
       const valueToSend: Post = {id: this.getRandomId(), user: this.user, title: this.postTitle, description: this.postDescription}
-      this.service.addPost(valueToSend).subscribe(result =>{
+      this.service.addPost(valueToSend).subscribe(() =>{
         paragraphErrorMessage.innerHTML = '';
         this.clearForm();
         this.route.navigateByUrl('timeline');
