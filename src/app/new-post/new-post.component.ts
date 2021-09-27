@@ -9,8 +9,7 @@ import { PostService } from '../services/post.service';
   styleUrls: ['./new-post.component.css']
 })
 export class NewPostComponent implements OnInit {
-
-  constructor(private service: PostService, private route: Router) { }
+  constructor(private service: PostService, private route: Router) {}
 
   ngOnInit(): void {
   }
@@ -20,15 +19,19 @@ export class NewPostComponent implements OnInit {
   postDescription: string;
 
   post(){
-    if(this.postTitle.length > 0 && this.postDescription.length > 0){
+    const paragraphErrorMessage = document.querySelector('#tryAgain');
+    if(this.postTitle?.length > 0 && this.postDescription?.length > 0){
       const valueToSend: Post = {id: this.getRandomId(), user: this.user, title: this.postTitle, description: this.postDescription}
       this.service.addPost(valueToSend).subscribe(result =>{
-        console.log(result);
+        paragraphErrorMessage.innerHTML = '';
         this.clearForm();
         this.route.navigateByUrl('timeline');
       },
       error => console.log(error)
       );
+    }
+    else{
+      paragraphErrorMessage.innerHTML = 'Verifique o formulário e tente novamente';
     }
   }
 
